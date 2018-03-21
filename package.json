@@ -1,0 +1,27 @@
+{
+  "name": "napoleon",
+  "version": "1.0.0",
+  "description": "Microservice for providing a REST API for Countries and Languages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git"
+  },
+  "keywords": [
+    "REST"
+  ],
+  "author": "Georg Sattler",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.17.2"
+  },
+  "dependencies": {
+    "countries-list": "^2.3.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.11"
+  }
+}
