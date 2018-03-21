@@ -6,4 +6,7 @@ module.exports = function (app) {
     // countries
     app.route('/countries')
         .get(napoleon.list_all_countries);
+
+    app.route('/country/:countryId')
+        .get(napoleon.getCountry)
 }
