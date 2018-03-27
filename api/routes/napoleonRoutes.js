@@ -9,4 +9,11 @@ module.exports = function (app) {
 
     app.route('/country/:countryId')
         .get(napoleon.getCountry)
+
+    // languages
+    app.route('/languages')
+        .get(napoleon.list_all_languages)
+
+    app.route('/language/:languageId')
+        .get(napoleon.getLanguage)
 }

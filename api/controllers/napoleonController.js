@@ -1,6 +1,7 @@
 'use strict';
 
 var geodata = require('countries-list')
+var currencydata = require('currency-data')
 
 exports.list_all_countries = function (req, res) {
 
@@ -57,5 +58,51 @@ exports.getCountry = function (req, res) {
         "status": "Error",
         "message": "requested country id does not exist",
         "country_id": country_id
+    })
+}
+
+exports.list_all_languages = function (req, res) {
+
+    var languages = geodata.languagesAll;
+
+    var data = []
+    for(var key in languages){
+        var language = languages[key]
+
+        var object = {
+            "id": key.toUpperCase(),
+            "name": language["name"],
+            "native": language["native"]
+        }
+
+        data.push(object)
+    }
+
+    return res.json(data)
+}
+
+exports.getLanguage = function (req, res) {
+    var language_id = req.params.languageId.toLowerCase();
+    var languages = geodata.languagesAll;
+    if (languages[language_id]) {
+        var language = languages[language_id];
+        var object = {
+            "id": language_id.toUpperCase(),
+            "name": language.name,
+            "native": language.native
+        }
+
+        return res.json({
+            "status": "OK",
+            "language_id": language_id.toUpperCase(),
+            "language": object
+        })
+    }
+
+    res.status(404)
+    res.json({
+        "status": "Error",
+        "message": "requested country id does not exist",
+        "language_id": language_id.toUpperCase()
     })
 }
