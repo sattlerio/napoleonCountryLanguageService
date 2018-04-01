@@ -55,7 +55,7 @@ exports.getCountry = function (req, res) {
 
     res.status(404)
     res.json({
-        "status": "Error",
+        "status": "ERROR",
         "message": "requested country id does not exist",
         "country_id": country_id
     })
@@ -101,7 +101,7 @@ exports.getLanguage = function (req, res) {
 
     res.status(404)
     res.json({
-        "status": "Error",
+        "status": "ERROR",
         "message": "requested country id does not exist",
         "language_id": language_id.toUpperCase()
     })
