@@ -20,7 +20,9 @@ exports.list_all_countries = function (req, res) {
             "capital": country.capital,
             "currency": country.currency,
             "languages": country.languages,
-            "flagiU": country.emojiU
+            "flagiU": country.emojiU,
+            "emoji": geodata.getEmojiFlag(key),
+            "unicode": geodata.getUnicode(key)
         }
 
         data.push(object)
